@@ -1,6 +1,6 @@
-:root{
+:root {
   --text: #ffff;
-  --bl: #090909;
+  --bg: #090909;
 }
 
 *{
@@ -9,6 +9,6 @@
 }
 
 body{
-  background-color: var(--bl);
+  background-color: var(--bg);
   color: var(--text);
 }
