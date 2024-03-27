@@ -9,6 +9,8 @@ import App from './App.jsx'
 import './index.css'
 import { Contact } from './Contact.jsx';
 
+import { Calc } from './Calc.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact/>,
+  },
+  {
+    path: "/calc",
+    element: <Calc />,
   }
 ]);
 

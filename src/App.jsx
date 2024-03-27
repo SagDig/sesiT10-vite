@@ -2,7 +2,7 @@ import { Tilt } from 'react-tilt'
 
 
 import Card from './components/Card.jsx'
-import Menu from './components/Menu.jsx'
+import Menu from './Menu.jsx'
 import img01 from "./assets/img/img01.jpg"
 import img02 from "./assets/img/img02.jpg"
 import img03 from "./assets/img/img03.jpg"
