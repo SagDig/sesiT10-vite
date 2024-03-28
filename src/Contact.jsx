@@ -7,18 +7,59 @@ import { MapContainer, TileLayer, Marker, Popup} from 'react-leaflet'
 
 import style from './Contact.module.css'
 
+import {useState} from 'react'
+
 export const Contact = () => {
     const geoData = ({lat: -25.4249442, lng:-49.290757})
-    const position = [-25.4249442, -49.290757]
+
+    const defaultPhoneNumber = "5541999999999"
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        mensage: ""
+    })
+    
+    const handleChange = (e) =>{
+        const {name, value} = e.target;
+        setFormData({...formData, [name]: value})
+    }
+
+    const handlezap = () =>{
+        const {name, email, mensage} = formData;
+
+        const urlZapZap = `https //api.whatsapp.com/send? phone=${defaultPhoneNumber}&text=
+        Nome:%20${name}%0D%0A
+        E-mail:%20${email}%0D%0A
+        Mensagem:%20${mensage}%0D%0A`
+
+        window.open(urlZapZap, '_blank')
+    }
+    
+
     return(
         
         <>
          <Menu />
-            <div>
+            <div className={style.sectionContact}>
                 <h1>Contato</h1>
-                <div className={style.sectionContact}>
+                <div>
                     <h2>Mapa</h2>
                     <div>
+                        <label htmlFor="name">Nome</label>
+                        <input type="text" id='name' value={formData.name} onChange={handleChange} required/>
+                    </div>
+                    <div>
+                        <label htmlFor="email">Email</label>
+                        <input type="text" id='email' value={formData.email} onChange={handleChange} required/>
+                    </div>
+                    <div>
+                        <label htmlFor="mensage">mensagem</label>
+                        <input type="text" id='mensage' value={formData.mensage} onChange={handleChange} required/>
+                    </div>
+                    <button onClick={handlezap}>Eviar mensagem</button>
+                    <div>
+                        <h2>Mapa</h2>
                         <MapContainer center={[geoData.lat, geoData.lng]} zoom={13} scrollWheelZoom={false} style={{width: "100%", height: "500px"}}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

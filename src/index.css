@@ -11,7 +11,7 @@
 body{
   background-color: var(--bg);
   color: var(--text);
-  font-family: "Yarndings 12 Charted", system-ui;
+  /* font-family: "Yarndings 12 Charted", system-ui; */
 }
 
 .leafflet-control-attribution{
